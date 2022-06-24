@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- *
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
  *
@@ -19,38 +18,39 @@
  * License along with this software; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- *
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.xwiki.rendering</groupId>
-  <artifactId>xwiki-rendering-macro-citations</artifactId>
-  <version>1.0</version>
-  <name>XWiki Macro - Citations</name>
-  <description>XWiki Macro - Citations</description>
+  <parent>
+    <groupId>org.xwiki.contrib</groupId>
+    <artifactId>parent-platform</artifactId>
+    <version>13.10</version>
+  </parent>
+  <groupId>org.xwiki.contrib</groupId>
+  <artifactId>macro-citation</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>Citation Macro</name>
+  <description>Allows to define citations and reference them in documents</description>
   <properties>
-    <commons.version>5.3-SNAPSHOT</commons.version>
+    <xwiki.release.jira.skip>true</xwiki.release.jira.skip>
+    <xwiki.clirr.skip>true</xwiki.clirr.skip>
+    <xwiki.checkstyle.skip>true</xwiki.checkstyle.skip>
+    <xwiki.extension.features>org.xwiki.rendering:xwiki-rendering-macro-citations</xwiki.extension.features>
   </properties>
-  <repositories>
-    <repository>
-      <id>www2.ph.ed.ac.uk-releases</id>
-      <url>http://www2.ph.ed.ac.uk/maven2</url>
-    </repository>
-  </repositories>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <scm>
+    <connection>scm:git:git://github.com/xwiki-contrib/macro-citation.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/macro-citation.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/macro-citation</url>
+    <tag>HEAD</tag>
+  </scm>
+  <developers>
+    <developer>
+      <id>matthiaw</id>
+      <name>Matthias Wegner</name>
+    </developer>
+  </developers>
   <dependencies>
     <dependency>
       <groupId>org.xwiki.commons</groupId>
@@ -66,44 +66,33 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-bridge</artifactId>
-      <version>${commons.version}</version>
+      <version>${platform.version}</version>
     </dependency>
     <dependency>
-    	<groupId>org.xwiki.platform</groupId>
-    	<artifactId>xwiki-platform-component-wiki</artifactId>
-    	<version>${commons.version}</version>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-component-wiki</artifactId>
+      <version>${platform.version}</version>
     </dependency>
     <!-- Testing dependencies -->
     <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-test-component</artifactId>
-      <version>${commons.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.xwiki.rendering</groupId>
       <artifactId>xwiki-rendering-syntax-xwiki21</artifactId>
-      <version>${commons.version}</version>
+      <version>${rendering.version}</version>
     </dependency>
     <dependency>
       <groupId>org.xwiki.rendering</groupId>
       <artifactId>xwiki-rendering-syntax-xhtml</artifactId>
-      <version>${commons.version}</version>
+      <version>${rendering.version}</version>
     </dependency>
     <dependency>
       <groupId>org.xwiki.rendering</groupId>
       <artifactId>xwiki-rendering-transformation-macro</artifactId>
-      <version>${commons.version}</version>
+      <version>${rendering.version}</version>
     </dependency>
     <dependency>
-    	<groupId>org.xwiki.rendering</groupId>
-    	<artifactId>xwiki-rendering-syntax-event</artifactId>
-    	<version>5.2-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.apache.velocity</groupId>
-    	<artifactId>velocity</artifactId>
-    	<version>1.7</version>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-syntax-event</artifactId>
+      <version>${rendering.version}</version>
     </dependency>
   </dependencies>
 </project>
